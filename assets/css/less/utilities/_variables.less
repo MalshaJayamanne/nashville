@@ -1,0 +1,44 @@
+@primary-color: #042B43;
+@secondary-color: #676363;
+
+@primary-color-light: #E3F4FF;
+@primary-color-medium: #257DCA;
+@primary-color-dark: #001527;
+
+@theme-light-gray: #FFFBF5;
+
+@btn-color: @secondary-color;
+
+@font-color: @primary-color;
+
+@font-primary: "Poppins", sans-serif;
+@font-secondary: "Inter", sans-serif;
+
+@default-margin: 80px;
+
+@theme-radius: 20px;
+
+@sub-page-banner-height: 400px;
+
+@mobile-device-width: 767px;
+@mobile-tab-device-width: 1024px;
+@tablet-device-width: 1024px;
+
+@mobile: ~'screen and (max-width: @{mobile-device-width})';
+@mobileTab: ~'screen and (max-width: @{mobile-tab-device-width})';
+@tablet: ~'screen and (min-width: 768px) and (max-width: @{tablet-device-width})';
+@ipadLandscape: ~ 'screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1)';
+@desktop: ~'screen and (min-width: 1025px)';
+@desktop1600: ~'screen and (min-width: 1600px)';
+@desktop1366: ~'screen and (min-width: 1025px) and (max-width: 1366px)';
+
+.fontawesome(@content: '') {
+    content: @content;
+    font-family: "Font Awesome 7 Free";
+    font-weight: 900;
+}
+
+.fade-color-gradient(@color, @rotation: 0deg) {
+    background: @color;
+    background: linear-gradient(@rotation, fade(@color, 0%) 0%, @color 100%);
+}

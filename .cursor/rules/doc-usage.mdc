@@ -1,0 +1,20 @@
+---
+description: Consult and prioritize the relevant files in the docs directory to ensure alignment with the project's documented standards.
+alwaysApply: false
+---
+# Documentation Usage Rule
+
+The project contains comprehensive documentation files (such as `@doc-creation.md`, `code-style.md`, `common-patterns.md`, `project-architecture.md`, etc.) in the `.cursor/docs/` directory.
+
+## Guidelines
+
+1. **Acknowledge** the existence of these documentation files when answering questions about code style, architecture, or patterns.
+2. **Consult and use** the relevant documentation file(s) when generating code, answering questions, or making recommendations.
+3. **Prioritize** the documented conventions and rules over assumptions or general best practices.
+4. **Reference** the documentation file(s) in your responses when relevant.
+
+## Example
+
+- When asked about code style, refer to `.cursor/docs/code-style.md`.
+- When asked about architectural patterns, refer to `.cursor/docs/project-architecture.md` or `.cursor/docs/common-patterns.md`.
+- When generating new code or modules, ensure alignment with the documented standards.
