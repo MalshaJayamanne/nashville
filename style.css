@@ -83,9 +83,8 @@ a {
 
     background: linear-gradient(
         to bottom,
-        rgba(196, 154, 108, 1) 0%,
-        rgba(196, 154, 108, 1) 75%,
-        rgba(196, 154, 108, 0) 100%
+        #DDBD9F 0%,
+        #9B8F69 
     );
 }
 
@@ -329,7 +328,6 @@ a {
     left: 0;
 
     width: 100%;
-    height: 100%;
 
     overflow: hidden;
 }
@@ -384,20 +382,20 @@ a {
     font: inherit;
     color: var(--white);
 }
-
-.hero-section .hero-title > *:first-child {
-    font-size: clamp(24px, 2.8vw, 40px);
+.hero-section .hero-title > h3 {
+    font-size: 41px;
+    font-weight: 400;
 }
 
-.hero-section .hero-title > *:last-child {
-    font-size: clamp(48px, 7vw, 100px);
+.hero-section .hero-title > h2 {
+    font-size: 94px;
+    font-weight: 400;
 }
 
 
 /* =========================================================
    HERO CTA
 ========================================================= */
-
 .hero-section .hero-cta {
     display: flex;
     align-items: center;
@@ -414,12 +412,14 @@ a {
 
     padding: 8px 8px 8px 36px;
 
-
     border-radius: 60px;
 
-    background: rgba(255, 255, 255, .82);
-}
+    background: rgba(255, 255, 255, 0.63);
 
+    /* Soft glass blur */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
 
 /* =========================================================
    HERO CONTENT
@@ -432,7 +432,7 @@ a {
     font-size: 18px;
     font-weight: 500;
 
-    color: #8a5a2f;
+    color: #8F5C2B;
 
     text-align: left;
 }
@@ -598,4 +598,219 @@ a {
     .hero-section .hero-cta .theme-brown {
         align-self: center;
     }
+}
+
+/* =========================================================
+   ABOUT
+   (paste below the HERO section in style.css)
+========================================================= */
+
+.about-section {
+    padding: 100px 0 120px;
+    background: #FCEFDF;
+    margin-top: 0; 
+}
+
+
+/* =========================================================
+   ABOUT HEADING
+========================================================= */
+
+.about-section .container > h2 {
+    margin: 0 0 70px;
+
+    font-family: 'Trajan Pro', serif;
+    font-weight: 400;
+    font-variant:small-caps;
+    font-size: 56px;
+    line-height: 66px;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #DDBD9F;
+}
+
+
+/* =========================================================
+   ABOUT WRAPPER
+========================================================= */
+
+.about-section .about-wrapper {
+    position: relative;
+
+    display: flex;
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   ABOUT IMAGE
+========================================================= */
+
+.about-section .about-image {
+    position: relative;
+    z-index: 1;
+
+    flex: 0 0 auto;
+
+    width: 689px;
+    max-width: 55%;
+    height: 735px;
+
+    overflow: hidden;
+
+    border-radius: 40px;
+}
+
+.about-section .about-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   ABOUT CARD
+========================================================= */
+
+.about-section .about-card {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    flex: 1;
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    margin-left: -206px;
+    padding: 60px 120px 0px 130px;
+
+    border-radius: 40px;
+
+    background: rgba(255, 251, 245, .78);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow: 0 10px 40px rgba(143, 92, 43, .12);
+
+
+}
+
+
+/* =========================================================
+   ABOUT CONTENT
+========================================================= */
+
+.about-section .about-content {
+    max-width: 515px;
+}
+
+/* "Who we are" */
+.about-section .about-content > p:first-child {
+    margin: 0 0 6px;
+
+    font-family: var(--font-raleway);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+
+    color: #8F5C2B;
+}
+
+/* title */
+.about-section .about-content h1,
+.about-section .about-content h2,
+.about-section .about-content h3 {
+    margin: 0 0 24px;
+
+    font-family: 'Trajan Pro', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 46px;
+    line-height: 56px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+
+    color: #000;
+}
+
+/* coloured last */
+.about-section .about-content h3{
+    font-weight: 400;
+    font-style: normal;
+
+    color: #B2713A;
+    background: none;
+}
+
+/* paragraph */
+.about-section .about-content p {
+    margin: 0 0 24px;
+
+    font-family: var(--font-raleway);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: 0;
+
+    color: #111;
+}
+
+
+/* =========================================================
+   ABOUT BUTTONS
+========================================================= */
+
+.about-section .about-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 14px;
+}
+
+.about-section .about-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    height: 45px;
+    padding: 0 30px;
+}
+
+/* Learn more */
+.theme-brown-light {
+    border-radius: 30px;
+
+    background: #CEBB9E;
+
+    font-family: var(--font-raleway);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    color: #846A47;
+
+    transition: filter .2s ease;
+}
+
+.theme-brown-light:hover {
+    color: #846A47;
+    filter: brightness(.95);
 }
