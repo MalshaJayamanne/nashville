@@ -33,7 +33,7 @@ a {
 /* ===== BUTTON ===== */
 .theme-brown {
     display: inline-block;
-    padding: 12px 22px;
+    padding: 12px 30px;
     border-radius: 30px;
     background: linear-gradient(to right, #C3864C, #B17039);
     color: var(--white);
@@ -51,6 +51,7 @@ a {
     filter: brightness(1.08);
 }
 
+
 /* =========================================================
    HEADER
 ========================================================= */
@@ -61,30 +62,30 @@ a {
     z-index: 100;
     width: 100%;
     color: var(--white);
-
-    /*
-     * Top 75% = brown
-     * Bottom 25% = transparent
-     */
     background: linear-gradient(
         to bottom,
         var(--header-bg) 0%,
         var(--header-bg) 75%,
         rgba(196, 154, 108, 0) 100%
     );
-
     transition: background-color .3s ease, box-shadow .3s ease;
+    box-sizing: border-box;
+}
+
+.main-header *,
+.main-header *::before,
+.main-header *::after {
+    box-sizing: border-box;
 }
 
 .main-header.is-transparent {
     position: absolute;
     top: 0;
     left: 0;
-
     background: linear-gradient(
         to bottom,
         #DDBD9F 0%,
-        #9B8F69 
+        #9B8F69 100%
     );
 }
 
@@ -96,9 +97,6 @@ a {
 
 .main-header.is-scrolled {
     background: var(--header-bg);
-}
-
-.main-header.is-scrolled {
     box-shadow: 0 2px 12px rgba(0, 0, 0, .12);
 }
 
@@ -117,184 +115,255 @@ a {
 
 
 /* =========================================================
-   HEADER LAYOUT
+   HEADER LAYOUT — DESKTOP
 ========================================================= */
 
-.main-header .header-wrapper {
-    display: grid;
+@media (min-width: 1025px) {
 
-    grid-template-columns:
-        minmax(0, 1fr)
-        auto
-        minmax(0, 1fr);
+    .main-header .header-wrapper {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        align-items: center;
+        width: 100%;
+    }
 
-    grid-template-rows:
-        auto
-        auto;
+    .main-header .left,
+    .main-header .right {
+        display: contents;
+    }
 
-    align-items: center;
-}
+    /* Header positions */
 
-.main-header .left,
-.main-header .right {
-    display: contents;
+    .main-header .left .header-top {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .main-header .left .menu-wrapper {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .main-header .right .header-top {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .main-header .right .menu-wrapper {
+        grid-column: 3;
+        grid-row: 2;
+    }
+
+    /* Logo */
+
+    .main-header .logo-wrapper {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        width: 279px;
+        max-width: 100%;
+        margin: 0 40px;
+        padding: 8px 0;
+        justify-self: center;
+    }
+
+    .main-header .logo-wrapper img {
+        display: block;
+        width: 279px;
+        max-width: 100%;
+        height: auto;
+        filter: none;
+    }
+
+    /* Top row */
+
+    .main-header .header-top {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+        height: 56px;
+        border-bottom: 1px solid rgba(255, 255, 255, .5);
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    .main-header .left .header-top {
+        justify-content: flex-start;
+    }
+
+    .main-header .right .header-top {
+        justify-content: flex-end;
+    }
+
+    /* Phone */
+
+    .main-header .header-phone i {
+        margin-right: 8px;
+    }
+
+    /* Social media */
+
+    .main-header .header-top ul {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .main-header .right .header-top a {
+        display: inline-block;
+        padding: 0 10px;
+        font-size: 14px;
+    }
+
+    .main-header .right .header-top a:last-child {
+        padding-right: 0;
+    }
+
+    /* Navigation rows */
+
+    .main-header .menu-wrapper {
+        min-width: 0;
+        padding: 16px 0 20px;
+    }
+
+    .main-header .right .menu-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 24px;
+    }
+
+    .main-header .menu {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .main-header .left .menu {
+        gap: 60px;
+    }
+
+    .main-header .right .menu {
+        gap: 48px;
+    }
+
+    .main-header .menu a {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    .main-header .menu a:hover,
+    .main-header .menu .current-menu-item > a {
+        opacity: .75;
+    }
+
+    /* Prevent navigation items from shrinking */
+
+    .main-header .menu li {
+        flex-shrink: 0;
+    }
 }
 
 
 /* =========================================================
-   HEADER POSITIONS
+   SMALLER DESKTOPS / LAPTOPS
+   Keep the same layout; reduce spacing only when needed.
 ========================================================= */
 
-.main-header .left .header-top {
-    grid-column: 1;
-    grid-row: 1;
-}
+@media (min-width: 1025px) and (max-width: 1199px) {
 
-.main-header .left .menu-wrapper {
-    grid-column: 1;
-    grid-row: 2;
-}
+    .main-header .logo-wrapper {
+        width: 210px;
+        margin-right: 12px;
+        margin-left: 12px;
+    }
 
-.main-header .right .header-top {
-    grid-column: 3;
-    grid-row: 1;
-}
+    .main-header .logo-wrapper img {
+        width: 210px;
+    }
 
-.main-header .right .menu-wrapper {
-    grid-column: 3;
-    grid-row: 2;
+    .main-header .left .menu {
+        gap: 18px;
+    }
+
+    .main-header .right .menu {
+        gap: 18px;
+    }
+
+    .main-header .right .menu-wrapper {
+        gap: 14px;
+    }
+
+    .main-header .menu a {
+        font-size: 11px;
+    }
+
+    .main-header .header-top {
+        font-size: 10px;
+    }
+
+    .main-header .right .header-top a {
+        padding-right: 6px;
+        padding-left: 6px;
+        font-size: 13px;
+    }
 }
 
 
 /* =========================================================
-   LOGO
+   TABLET
+   Leave the existing Mmenu navigation behavior intact.
 ========================================================= */
 
-.main-header .logo-wrapper {
-    grid-column: 2;
-    grid-row: 1 / span 2;
+@media (min-width: 768px) and (max-width: 1024px) {
 
-    margin: 0 40px;
-    padding: 8px 0;
-}
+    .main-header .logo-wrapper img {
+        max-width: 100%;
+        height: auto;
+    }
 
-.main-header .logo-wrapper img {
-    display: block;
-
-    width: 279px;
-    max-width: 100%;
-    height: auto;
-
-    filter: none;
+    .main-header .menu a {
+        white-space: normal;
+    }
 }
 
 
 /* =========================================================
-   HEADER TOP
+   MOBILE
 ========================================================= */
 
-.main-header .header-top {
-    display: flex;
-    align-items: center;
+@media (max-width: 767px) {
 
-    box-sizing: border-box;
+    .main-header .logo-wrapper img {
+        max-width: 100%;
+        height: auto;
+    }
 
-    height: 56px;
-
-    border-bottom:
-        1px solid rgba(255, 255, 255, .5);
-
-    font-size: 11px;
-    font-weight: 600;
-}
-
-.main-header .right .header-top {
-    justify-content: flex-end;
+    .admin-bar .main-header.is-sticky,
+    .admin-bar .main-header.is-transparent {
+        top: 46px;
+    }
 }
 
 
 /* =========================================================
-   PHONE
+   VERY SMALL SCREENS
 ========================================================= */
 
-.main-header .header-phone i {
-    margin-right: 8px;
-}
+@media (max-width: 374px) {
 
-
-/* =========================================================
-   SOCIAL MEDIA
-========================================================= */
-
-.main-header .header-top ul {
-    display: flex;
-    align-items: center;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-.main-header .right .header-top a {
-    display: inline-block;
-
-    padding: 0 10px;
-
-    font-size: 14px;
-}
-
-.main-header .right .header-top a:last-child {
-    padding-right: 0;
-}
-
-
-/* =========================================================
-   HEADER MENU
-========================================================= */
-
-.main-header .menu-wrapper {
-    padding: 16px 0 20px;
-}
-
-.main-header .right .menu-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    gap: 24px;
-}
-
-.main-header .menu {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-.main-header .left .menu {
-    gap: 60px;
-}
-
-.main-header .right .menu {
-    gap: 48px;
-}
-
-.main-header .menu a {
-    font-size: 12px;
-    font-weight: 600;
-
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-
-.main-header .menu a:hover,
-.main-header .menu .current-menu-item > a {
-    opacity: .75;
+    .main-header .logo-wrapper img {
+        max-width: 100%;
+    }
 }
 
 
@@ -444,6 +513,7 @@ a {
 
 .hero-section .hero-cta .theme-brown {
     flex-shrink: 0;
+    padding: 12px 50px;
 }
 
 
@@ -627,9 +697,11 @@ a {
     letter-spacing: 0;
     text-align: center;
     text-transform: uppercase;
+    text-transform: capitalize;
 
     color: #DDBD9F;
 }
+
 
 
 /* =========================================================
@@ -787,7 +859,7 @@ a {
     box-sizing: border-box;
 
     height: 45px;
-    padding: 0 30px;
+    padding: 0 70px;
 }
 
 /* Learn more */
@@ -869,7 +941,7 @@ a {
     width: 515px;
     max-width: 100%;
 
-    margin-left: 120px;
+    margin-left: 280px;
     margin-top: 156px;
     padding: 80px 0;
 
@@ -1043,7 +1115,7 @@ a {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 48px;
+    gap: 0;
     margin-bottom: 102px;
 }
 
@@ -1486,7 +1558,7 @@ a {
 .reviews-section .reviews-content {
     width: 100%;
     max-width: 860px;
-    margin-left: auto;
+    margin-left: 700px;
 }
 
 
@@ -2531,8 +2603,8 @@ a {
 /* Four-column layout */
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1.3fr 1.8fr 1.5fr;
-    column-gap: 45px;
+    grid-template-columns: 1.2fr 1.5fr 1.6fr 1.5fr;
+    column-gap: 30px;
     align-items: end;
 }
 
@@ -2546,7 +2618,7 @@ a {
 
 .footer-logo-wrapper {
     width: 100%;
-    max-width: 279px;
+    max-width: 330px;
     margin: 0 0 50px;
 }
 

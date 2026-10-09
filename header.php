@@ -61,7 +61,8 @@ if ($enable_sticky_header) {
                                 rel="noopener noreferrer"
                             <?php endif; ?>
                         >
-                            <i class="fa-solid fa-phone" aria-hidden="true"></i><?php echo esc_html($footer_mobile['title']); ?>
+                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                            <?php echo esc_html($footer_mobile['title']); ?>
                         </a>
 
                     <?php endif; ?>

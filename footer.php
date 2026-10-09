@@ -290,7 +290,7 @@ $appointment_title     = get_theme_option('appointment_modal_title');
                                 <?php foreach (array_filter(array_map('trim', explode(',', $email_text))) as $email_address) : ?>
                                     <a href="<?php echo esc_url('mailto:' . sanitize_email($email_address)); ?>">
                                         <?php echo esc_html($email_address); ?>
-                                    </a><br>
+                                    </a>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
