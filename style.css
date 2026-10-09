@@ -366,7 +366,7 @@ a {
 ========================================================= */
 
 .hero-section .hero-title {
-    font-family: 'Marcellus', serif;
+    font-family: 'Cinzel', serif;
 
     font-variant: small-caps;
     font-weight: 400;
@@ -619,7 +619,7 @@ a {
 .about-section .container > h2 {
     margin: 0 0 70px;
 
-    font-family: 'Trajan Pro', serif;
+    font-family: 'Cinzel', serif;
     font-weight: 400;
     font-variant:small-caps;
     font-size: 56px;
@@ -813,4 +813,1132 @@ a {
 .theme-brown-light:hover {
     color: #846A47;
     filter: brightness(.95);
+}
+
+
+/* =========================================================
+   SELECT US
+========================================================= */
+
+.selectus-section {
+    background: #FCEFDF;
+    margin-top: 0px;
+}
+
+
+/* =========================================================
+   SELECT US IMAGE (wrapper that holds the image + content)
+========================================================= */
+
+.selectus-section .selectus-image {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 850px;
+
+    overflow: hidden;
+}
+
+.selectus-section .selectus-image > img {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   SELECT US CONTENT
+========================================================= */
+
+.selectus-section .selectus-inner {
+    position: relative;
+    z-index: 2;
+
+    box-sizing: border-box;
+
+    width: 515px;
+    max-width: 100%;
+
+    margin-left: 120px;
+    margin-top: 156px;
+    padding: 80px 0;
+
+    text-align: center;
+}
+
+/* "Why Select Us" */
+.selectus-section .selectus-content > p:first-child {
+    margin: 0 0 14px;
+
+    font-family: var(--font-raleway);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0;
+
+    color: #C3864C;
+}
+
+/* title */
+.selectus-section .selectus-content h2 {
+    margin: 0 0 20px;
+
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 46px;
+    line-height: 56px;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #84572B;
+}
+
+/* description */
+.selectus-section .selectus-content p {
+    margin: 0 0 40px;
+
+    font-family: var(--font-raleway);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: 0;
+    text-align: center;
+
+    color: #000;
+}
+
+.selectus-section .selectus-content > p:first-child {
+    margin: 0 0 14px;
+}
+
+
+/* =========================================================
+   SELECT US BUTTON
+========================================================= */
+
+.selectus-section .theme-brown {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    width: 312px;
+    max-width: 100%;
+    height: 47px;
+
+    padding: 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE SELECT US
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .selectus-section .selectus-image {
+        min-height: 600px;
+    }
+
+    .selectus-section .selectus-inner {
+        margin-left: 0;
+        padding: 60px 15px;
+    }
+
+    .selectus-section .selectus-content h3 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
+
+/* =========================================================
+   SERVICES SECTION
+========================================================= */
+
+.services-section {
+    position: relative;
+    isolation: isolate;
+    padding: 100px 0 140px;
+    margin-top: 0;
+    overflow: hidden;
+    color: #fff;
+    background: #6B3F1F;
+}
+
+
+/* =========================================================
+   BACKGROUND VIDEO / POSTER
+========================================================= */
+
+.services-section .services-media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.services-section .services-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(50, 25, 10, 0.35);
+}
+
+.services-section .services-video,
+.services-section .services-poster-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   ACF WATERMARK IMAGE
+========================================================= */
+
+.services-section .services-watermark {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    z-index: -1;
+    width: 1480px;
+    height: 496px;
+    max-width: none;
+    opacity: 0.1;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.services-section .services-watermark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   CONTENT CONTAINER
+========================================================= */
+
+.services-section > .container {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.services-section .services-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 48px;
+    margin-bottom: 102px;
+}
+
+.services-section .services-left {
+    flex: 1 1 653px;
+    min-width: 0;
+    max-width: 653px;
+}
+
+.services-section .services-right {
+    flex: 0 1 480px;
+    min-width: 0;
+    max-width: 480px;
+}
+
+
+/* Eyebrow: Our Services */
+
+.services-section .services-left > p:first-child {
+    margin: 0 0 14px;
+    font-family: var(--font-raleway);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1;
+    color: #C3864C;
+}
+
+
+/* Main heading */
+
+.services-section .services-left h1,
+.services-section .services-left h2,
+.services-section .services-left h3 {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 46px;
+    line-height: 56px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+
+/* Right-side description */
+
+.services-section .services-right-content p {
+    margin: 0 0 20px;
+    font-family: var(--font-raleway);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 26px;
+    color: #fff;
+}
+
+
+/* =========================================================
+   APPOINTMENT BUTTON
+========================================================= */
+
+.services-section .theme-white {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 300px;
+    max-width: 100%;
+    min-height: 45px;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 53px;
+    background: #fff;
+    font-family: var(--font-raleway);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #87502C;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.services-section .theme-white:hover {
+    color: #87502C;
+    transform: translateY(-1px);
+    filter: brightness(0.96);
+}
+
+
+/* =========================================================
+   HORIZONTAL SERVICES SLIDER
+========================================================= */
+
+.services-section .services-slider {
+    margin-right: calc(50% - 50vw);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.services-section .services-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.services-section .services-track {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+    width: max-content;
+    padding-right: 24px;
+}
+
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
+.services-section .service-card {
+    flex: 0 0 459px;
+    box-sizing: border-box;
+    width: 459px;
+    min-height: 584px;
+    padding: 16px 16px 45px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.91);
+    scroll-snap-align: start;
+}
+
+
+/* Card image */
+
+.services-section .service-image {
+    width: 100%;
+    height: 316px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.services-section .service-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Card content */
+
+.services-section .service-body {
+    box-sizing: border-box;
+    width: 360px;
+    max-width: 100%;
+    margin: 35px auto 0;
+    text-align: center;
+}
+
+
+/* Card title */
+
+.services-section .service-body h3 {
+    margin: 0 0 15px;
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+    color: #C3864C;
+    text-align: center;
+}
+
+
+/* Card description */
+
+.services-section .service-body p {
+    margin: 0 0 20px;
+    font-family: var(--font-raleway);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #666;
+    text-align: center;
+}
+
+
+/* Read More button */
+
+.services-section .service-readmore {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 187px;
+    max-width: 100%;
+    min-height: 37px;
+    padding: 10px 20px;
+    border: 1px solid #C3864C;
+    border-radius: 53px;
+    font-family: var(--font-raleway);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #C3864C;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.services-section .service-readmore:hover {
+    color: #fff;
+    background: #C3864C;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .services-section {
+        padding: 80px 0 100px;
+    }
+
+    .services-section .services-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        margin-bottom: 60px;
+    }
+
+    .services-section .services-left,
+    .services-section .services-right {
+        flex: 0 1 auto;
+        width: 100%;
+        max-width: 653px;
+    }
+
+    .services-section .services-watermark {
+        width: 1100px;
+        height: auto;
+        aspect-ratio: 1480 / 496;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .services-section {
+        padding: 60px 0 80px;
+    }
+
+    .services-section .services-head {
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .services-section .services-left h1,
+    .services-section .services-left h2,
+    .services-section .services-left h3 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .services-section .services-right-content p {
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+    .services-section .theme-white {
+        width: 300px;
+    }
+
+    .services-section .services-watermark {
+        width: 800px;
+        height: auto;
+        aspect-ratio: 1480 / 496;
+    }
+
+    .services-section .services-slider {
+        margin-right: calc(50% - 50vw);
+    }
+
+    .services-section .services-track {
+        gap: 16px;
+        padding-right: 16px;
+    }
+
+    .services-section .service-card {
+        flex: 0 0 85vw;
+        width: 85vw;
+        min-height: 0;
+        padding: 12px 12px 30px;
+    }
+
+    .services-section .service-image {
+        height: 220px;
+    }
+
+    .services-section .service-body {
+        width: 100%;
+        margin-top: 28px;
+    }
+
+    .services-section .service-body h3 {
+        font-size: 23px;
+        line-height: 1.3;
+    }
+
+    .services-section .service-body p {
+        font-size: 14px;
+        line-height: 23px;
+    }
+}
+
+/* =========================================================
+   REVIEWS SECTION
+========================================================= */
+
+.reviews-section {
+    position: relative;
+    isolation: isolate;
+    min-height: 600px;
+    overflow: hidden;
+    background: #FCEFDF;
+
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   BACKGROUND IMAGE
+========================================================= */
+
+.reviews-section .reviews-background {
+    position: absolute;
+    inset: 1;
+    z-index: -1;
+}
+
+.reviews-section .reviews-background img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* =========================================================
+   CONTENT LAYOUT
+========================================================= */
+
+.reviews-section .reviews-container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1480px;
+    min-height: 600px;
+    margin-top: 40px;
+    padding: 96px 36px 70px;
+}
+
+.reviews-section .reviews-content {
+    width: 100%;
+    max-width: 860px;
+    margin-left: auto;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.reviews-section .reviews-heading {
+    margin-bottom: 26px;
+    text-align: center;
+}
+
+
+/* Patient Reviews */
+
+.reviews-section .reviews-heading > p {
+    margin: 0 0 10px;
+    font-family: var(--font-raleway);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #C3864C;
+}
+
+
+/* Main heading */
+
+.reviews-section .reviews-heading h1,
+.reviews-section .reviews-heading h2,
+.reviews-section .reviews-heading h3 {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    font-size: 46px;
+    line-height: 56px;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: #84572B;
+}
+
+
+/* =========================================================
+   REVIEW CARDS
+========================================================= */
+
+.reviews-section .reviews-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 300px));
+    justify-content: center;
+    gap: 22px;
+    align-items: stretch;
+}
+
+/* Individual card */
+
+.reviews-section .review-card {
+    box-sizing: border-box;
+    max-width: 300px;
+    min-width: 0;
+    min-height: 240px;
+    padding: 30px 24px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.78);
+    text-align: center;
+}
+
+
+/* Review icon */
+
+.reviews-section .review-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 8px;
+}
+
+.reviews-section .review-icon img {
+    display: block;
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+
+/* Review text */
+
+.reviews-section .review-text {
+    margin: 0 0 16px;
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 1.9;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: capitalize;
+    color: #333;
+}
+
+
+/* Reviewer name */
+
+.reviews-section .review-name {
+    margin: 0;
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 1.9;
+    text-align: center;
+    color: #C3864C;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .reviews-section .reviews-container {
+        min-height: 560px;
+        padding: 80px 30px 60px;
+    }
+
+    .reviews-section .reviews-content {
+        max-width: 650px;
+    }
+
+    .reviews-section .reviews-heading h1,
+    .reviews-section .reviews-heading h2,
+    .reviews-section .reviews-heading h3 {
+        font-size: 36px;
+        line-height: 46px;
+    }
+
+    .reviews-section .reviews-list {
+        gap: 16px;
+    }
+
+    .reviews-section .review-card {
+        padding: 24px 16px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .reviews-section .reviews-background img {
+        object-position: 30% center;
+    }
+
+    .reviews-section .reviews-container {
+        min-height: 0;
+        padding: 320px 20px 50px;
+    }
+
+    .reviews-section .reviews-content {
+        max-width: 100%;
+    }
+
+    .reviews-section .reviews-heading {
+        margin-bottom: 24px;
+    }
+
+    .reviews-section .reviews-heading > p:first-child {
+        font-size: 16px;
+    }
+
+    .reviews-section .reviews-heading h1,
+    .reviews-section .reviews-heading h2,
+    .reviews-section .reviews-heading h3 {
+        font-size: 29px;
+        line-height: 1.3;
+    }
+
+    .reviews-section .reviews-list {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .reviews-section .review-card {
+        min-height: 0;
+        padding: 24px 22px;
+        border-radius: 16px;
+    }
+
+    .reviews-section .review-text,
+    .reviews-section .review-name {
+        font-size: 12px;
+    }
+}
+
+
+
+/* =========================================================
+   DOCTOR SECTION
+========================================================= */
+
+.doctor-section {
+    position: relative;
+    padding: 120px 44px;
+    margin-top: 0;
+    background: #fffcf8;
+    overflow: hidden;
+}
+
+.doctor-container {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    min-height: 782px;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   LEFT CONTENT CARD
+========================================================= */
+
+.doctor-left {
+    position: absolute;
+    z-index: 2;
+    top: 227px;
+    left: 0;
+    width: 35%;
+    height: 464px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 45px;
+
+    /* Light cream glass effect */
+    background: rgba(255, 255, 255, 0.70);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(14px);
+
+    border-radius: 30px;
+    box-shadow: 0 8px 30px rgba(91, 67, 43, 0.06);
+}
+
+.doctor-left-content {
+    width: 100%;
+    max-width: 418px;
+}
+
+.doctor-left-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+/* Meet the doctor */
+
+.doctor-left-editor p {
+    margin: 0;
+    color: #C3864C;
+    font-family: var(--font-raleway);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+/* Main heading */
+
+.doctor-left-editor h2 {
+    margin: 0;
+    color: #040404;
+    font-family: 'Cinzel', serif;
+    font-size: 46px;
+    font-weight: 400;
+    line-height: 56px;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   CENTER DOCTOR IMAGE
+========================================================= */
+
+.doctor-image {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 29%;
+    width: 41.5%;
+    height: 782px;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.doctor-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* =========================================================
+   RIGHT BIOGRAPHY CARD
+========================================================= */
+
+.doctor-right {
+    position: absolute;
+    z-index: 2;
+    top: 107px;
+    right: 0;
+    width: 41.5%;
+    min-height: 544px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 45px;
+
+    /* Slightly deeper cream glass effect */
+    background: rgba(247, 242, 235, 0.78);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+    border-radius: 30px;
+    box-shadow: 0 8px 30px rgba(91, 67, 43, 0.06);
+}
+
+.doctor-right-content {
+    width: 100%;
+    max-width: 335px;
+}
+
+/* Biography subheading */
+
+.doctor-right-editor h5 {
+    margin: 0 0 12px;
+    color: #8F5C2B;
+    font-family: var(--font-raleway);
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 27px;
+}
+
+/* Biography paragraphs */
+
+.doctor-right-editor p {
+    margin: 0 0 18px;
+    color: #777373;
+    font-family: var(--font-raleway);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 27px;
+}
+
+.doctor-right-editor p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================================
+   READ MORE BUTTON
+========================================================= */
+
+.doctor-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+    max-width: 100%;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 53px;
+    background: #CEBB9E;
+    color: #846A47;
+    font-family: var(--font-raleway);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.doctor-button:hover,
+.doctor-button:focus {
+    background: #B9A17D;
+    color: #ffffff;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+    .doctor-section {
+        padding: 70px 30px;
+    }
+
+    .doctor-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        min-height: auto;
+    }
+
+    .doctor-left,
+    .doctor-image,
+    .doctor-right {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+    }
+
+    .doctor-left {
+        grid-column: 1;
+        grid-row: 1;
+        padding: 40px 30px;
+    }
+
+    .doctor-image {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        min-height: 600px;
+        border-radius: 35px;
+    }
+
+    .doctor-right {
+        grid-column: 1;
+        grid-row: 2;
+        padding: 40px 30px;
+    }
+
+    .doctor-left-editor h2 {
+        font-size: 36px;
+        line-height: 1.25;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+    .doctor-section {
+        padding: 50px 20px;
+    }
+
+    .doctor-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .doctor-image {
+        order: 1;
+        min-height: 0;
+        aspect-ratio: 4 / 5;
+        border-radius: 28px;
+    }
+
+    .doctor-left {
+        order: 2;
+        margin-top: -35px;
+        z-index: 2;
+        padding: 35px 25px;
+        border-radius: 24px;
+    }
+
+    .doctor-left-content {
+        max-width: 100%;
+    }
+
+    .doctor-left-editor {
+        gap: 12px;
+    }
+
+    .doctor-left-editor p {
+        font-size: 16px;
+    }
+
+    .doctor-left-editor h2 {
+        font-size: clamp(30px, 8vw, 38px);
+        line-height: 1.25;
+    }
+
+    .doctor-right {
+        order: 3;
+        margin-top: 20px;
+        padding: 35px 25px;
+        border-radius: 24px;
+    }
+
+    .doctor-right-content {
+        max-width: 100%;
+    }
+
+    .doctor-right-editor h5 {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .doctor-right-editor p {
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    .doctor-button {
+        margin-top: 15px;
+        padding: 12px 20px;
+        font-size: 11px;
+    }
 }

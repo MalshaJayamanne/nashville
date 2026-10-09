@@ -201,6 +201,460 @@ $about_link    = get_field('about_link');
 
 </section>
 
+
+<?php
+
+$selectus_image   = get_field('selectus_image');
+$selectus_content = get_field('selectus_content');
+
+?>
+
+<section class="selectus-section">
+
+        <div class="selectus-image">
+
+            <?php if ($selectus_image) : ?>
+
+                <?php
+                get_image(
+                    $selectus_image,
+                    'selectus-bg-image',
+                    ''
+                );
+                ?>
+
+            <?php endif; ?>
+
+
+            <div class="selectus-inner">
+
+                <?php if ($selectus_content) : ?>
+
+                    <div class="selectus-content">
+                        <?php echo wp_kses_post($selectus_content); ?>
+                    </div>
+
+                <?php endif; ?>
+
+
+                <!-- APPOINTMENT BUTTON -->
+
+                <a
+                    class="theme-brown"
+                    href="<?php echo esc_url(!empty($footer_link['url']) ? $footer_link['url'] : home_url('/#cta')); ?>"
+                    target="<?php echo esc_attr($footer_link['target'] ?? '_self'); ?>"
+                >
+                    Schedule an appointment
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<?php
+
+$service_video     = get_field('service_background_video');
+$service_poster    = get_field('service_poster');
+$service_watermark = get_field('service_watermark');
+$service_left      = get_field('service_left');
+$service_right     = get_field('service_right');
+
+// Appointment link from Theme General Settings.
+$appointment_link = get_field('appointment_link', 'option');
+
+$appointment_url = (
+    is_array($appointment_link) &&
+    !empty($appointment_link['url'])
+)
+    ? $appointment_link['url']
+    : home_url('/#contact');
+
+$appointment_target = (
+    is_array($appointment_link) &&
+    !empty($appointment_link['target'])
+)
+    ? $appointment_link['target']
+    : '_self';
+
+?>
+
+<section class="services-section">
+
+    <!-- BACKGROUND VIDEO / POSTER -->
+
+    <div class="services-media">
+
+        <?php if (is_array($service_video) && !empty($service_video['url'])) : ?>
+
+            <video
+                class="services-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                <?php if (is_array($service_poster) && !empty($service_poster['url'])) : ?>
+                    poster="<?php echo esc_url($service_poster['url']); ?>"
+                <?php endif; ?>
+                aria-hidden="true"
+                tabindex="-1"
+            >
+                <source
+                    src="<?php echo esc_url($service_video['url']); ?>"
+                    type="<?php echo esc_attr($service_video['mime_type'] ?? 'video/mp4'); ?>"
+                >
+            </video>
+
+        <?php elseif ($service_poster) : ?>
+
+            <?php
+            get_image(
+                $service_poster,
+                'services-poster-image',
+                ''
+            );
+            ?>
+
+        <?php endif; ?>
+
+    </div>
+
+
+    <!-- ACF BACKGROUND WATERMARK -->
+
+    <?php if ($service_watermark) : ?>
+
+        <div class="services-watermark" aria-hidden="true">
+            <?php
+            get_image(
+                $service_watermark,
+                'services-watermark-image',
+                ''
+            );
+            ?>
+        </div>
+
+    <?php endif; ?>
+
+
+    <div class="container">
+
+        <!-- SECTION HEADING AND INTRODUCTION -->
+
+        <div class="services-head">
+
+            <?php if ($service_left) : ?>
+
+                <div class="services-left">
+                    <?php echo wp_kses_post($service_left); ?>
+                </div>
+
+            <?php endif; ?>
+
+
+            <?php if ($service_right) : ?>
+
+                <div class="services-right">
+
+                    <div class="services-right-content">
+                        <?php echo wp_kses_post($service_right); ?>
+                    </div>
+
+                    <a
+                        class="theme-white"
+                        href="<?php echo esc_url($appointment_url); ?>"
+                        target="<?php echo esc_attr($appointment_target); ?>"
+                        <?php if ($appointment_target === '_blank') : ?>
+                            rel="noopener noreferrer"
+                        <?php endif; ?>
+                    >
+                        Schedule an appointment
+                    </a>
+
+                </div>
+
+            <?php endif; ?>
+
+        </div>
+
+
+        <!-- SERVICE CARDS -->
+
+        <?php if (have_rows('services')) : ?>
+
+            <div class="services-slider">
+
+                <div class="services-track">
+
+                    <?php while (have_rows('services')) : the_row(); ?>
+
+                        <?php
+                        $service_image   = get_sub_field('image');
+                        $service_title   = get_sub_field('title');
+                        $service_content = get_sub_field('content');
+                        $service_link    = get_sub_field('link');
+                        ?>
+
+                        <article class="service-card">
+
+                            <?php if ($service_image) : ?>
+
+                                <div class="service-image">
+                                    <?php
+                                    get_image(
+                                        $service_image,
+                                        'service-img',
+                                        $service_title ?: 'Dental service'
+                                    );
+                                    ?>
+                                </div>
+
+                            <?php endif; ?>
+
+
+                            <div class="service-body">
+
+                                <?php if ($service_title) : ?>
+
+                                    <h3>
+                                        <?php echo esc_html($service_title); ?>
+                                    </h3>
+
+                                <?php endif; ?>
+
+
+                                <?php if ($service_content) : ?>
+
+                                    <p>
+                                        <?php echo esc_html($service_content); ?>
+                                    </p>
+
+                                <?php endif; ?>
+
+
+                                <?php if (is_array($service_link) && !empty($service_link['url'])) : ?>
+
+                                    <a
+                                        class="service-readmore"
+                                        href="<?php echo esc_url($service_link['url']); ?>"
+                                        target="<?php echo esc_attr($service_link['target'] ?? '_self'); ?>"
+                                        <?php if (($service_link['target'] ?? '') === '_blank') : ?>
+                                            rel="noopener noreferrer"
+                                        <?php endif; ?>
+                                    >
+                                        <?php
+                                        echo esc_html(
+                                            !empty($service_link['title'])
+                                                ? $service_link['title']
+                                                : 'Read More'
+                                        );
+                                        ?>
+                                    </a>
+
+                                <?php endif; ?>
+
+                            </div>
+
+                        </article>
+
+                    <?php endwhile; ?>
+
+                </div>
+
+            </div>
+
+        <?php endif; ?>
+
+    </div>
+
+</section>
+
+<?php
+
+$reviews_image = get_field('reviews_image');
+$review_title  = get_field('review_title');
+
+?>
+
+<section class="reviews-section" id="reviews">
+
+    <!-- BACKGROUND IMAGE -->
+
+    <?php if ($reviews_image) : ?>
+
+        <div class="reviews-background" aria-hidden="true">
+            <?php
+            get_image(
+                $reviews_image,
+                'reviews-background-image',
+                ''
+            );
+            ?>
+        </div>
+
+    <?php endif; ?>
+
+
+    <!-- REVIEWS CONTENT -->
+
+    <div class="reviews-container">
+
+        <div class="reviews-content">
+
+            <!-- TITLE -->
+
+            <?php if ($review_title) : ?>
+
+                <div class="reviews-heading">
+                    <?php echo wp_kses_post($review_title); ?>
+                </div>
+
+            <?php endif; ?>
+
+
+            <!-- REVIEW CARDS -->
+
+            <?php if (have_rows('review')) : ?>
+
+                <div class="reviews-list">
+
+                    <?php while (have_rows('review')) : the_row(); ?>
+
+                        <?php
+                        $review_content = get_sub_field('content');
+                        $review_name    = get_sub_field('name');
+                        $review_icon    = get_sub_field('icon');
+                        ?>
+
+                        <article class="review-card">
+
+                            <?php if ($review_icon) : ?>
+
+                                <div class="review-icon">
+                                    <?php
+                                    get_image(
+                                        $review_icon,
+                                        'review-icon-image',
+                                        'Review platform'
+                                    );
+                                    ?>
+                                </div>
+
+                            <?php endif; ?>
+
+
+                            <?php if ($review_content) : ?>
+
+                                <p class="review-text">
+                                    <?php echo esc_html($review_content); ?>
+                                </p>
+
+                            <?php endif; ?>
+
+
+                            <?php if ($review_name) : ?>
+
+                                <p class="review-name">
+                                    <?php echo esc_html($review_name); ?>
+                                </p>
+
+                            <?php endif; ?>
+
+                        </article>
+
+                    <?php endwhile; ?>
+
+                </div>
+
+            <?php endif; ?>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<?php
+$doctor_lcontent = get_field('doctor_lcontent');
+$doctor_image    = get_field('doctor_image');
+$doctor_rcontent = get_field('doctor_rcontent');
+$doctor_link     = get_field('doctor_link');
+?>
+
+<section class="doctor-section" id="doctor">
+    <div class="doctor-container">
+
+        <!-- Left Content Card -->
+        <div class="doctor-left">
+            <div class="doctor-left-content">
+                <?php
+                if ($doctor_lcontent) {
+                    echo '<div class="doctor-left-editor">';
+                    echo wp_kses_post($doctor_lcontent);
+                    echo '</div>';
+                }
+                ?>
+            </div>
+        </div>
+
+        <!-- Center Doctor Image -->
+        <div class="doctor-image">
+            <?php
+            if ($doctor_image) {
+                echo get_image(
+                    $doctor_image,
+                    'doctor',
+                    'Dr. Homa Amedy, cosmetic dentist in Nashville'
+                );
+            }
+            ?>
+        </div>
+
+        <!-- Right Biography Card -->
+        <div class="doctor-right">
+            <div class="doctor-right-content">
+                <?php
+                if ($doctor_rcontent) {
+                    echo '<div class="doctor-right-editor">';
+                    echo wp_kses_post($doctor_rcontent);
+                    echo '</div>';
+                }
+
+                if ($doctor_link && !empty($doctor_link['url'])) :
+                    $link_target = !empty($doctor_link['target'])
+                        ? $doctor_link['target']
+                        : '_self';
+                ?>
+                    <a
+                        class="doctor-button"
+                        href="<?php echo esc_url($doctor_link['url']); ?>"
+                        target="<?php echo esc_attr($link_target); ?>"
+                        <?php if ($link_target === '_blank') : ?>
+                            rel="noopener noreferrer"
+                        <?php endif; ?>
+                    >
+                        <?php
+                        echo esc_html(
+                            !empty($doctor_link['title'])
+                                ? $doctor_link['title']
+                                : 'Read more about the doctor'
+                        );
+                        ?>
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
 </main>
 
 <?php get_footer(); ?>

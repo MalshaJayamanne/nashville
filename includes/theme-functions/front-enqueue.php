@@ -63,20 +63,9 @@ function theme_front_styles()
      */
     wp_enqueue_style(
         'google-fonts',
-        'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Marcellus&display=swap',
         array(),
         null
-    );
-
-    /*
-     * Theme stylesheet
-     */
-    wp_enqueue_style(
-        'theme-styles',
-        THEME_THEMEROOT . '/style.css',
-        array('google-fonts'),
-        '1.0',
-        'screen'
     );
 
     /*
@@ -94,7 +83,7 @@ function theme_front_styles()
     }
 
     /*
-     * Compiled LESS/CSS
+     * Compiled LESS/CSS (loads first)
      */
     $version = get_theme_cache_version();
 
@@ -103,6 +92,20 @@ function theme_front_styles()
         THEME_CSS . 'master.min.css',
         array('google-fonts'),
         $version,
+        'screen'
+    );
+
+    /*
+     * Theme stylesheet (loads last so it wins over master.min.css)
+     */
+    $style_path    = get_template_directory() . '/style.css';
+    $style_version = file_exists($style_path) ? filemtime($style_path) : '1.0';
+
+    wp_enqueue_style(
+        'theme-styles',
+        THEME_THEMEROOT . '/style.css',
+        array('google-fonts', 'master-styles'),
+        $style_version,
         'screen'
     );
 
