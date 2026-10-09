@@ -11,16 +11,24 @@ function theme_front_scripts()
 
     $version = get_theme_cache_version();
 
+    // Swiper CSS and JS
+    wp_enqueue_style(
+        'swiper-css',
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
+        array(),
+        '11.2.10'
+    );
+
     wp_enqueue_script(
-        'custom-js',
-        THEME_JS . 'custom.min.js',
-        array('jquery'),
-        $version,
+        'swiper-js',
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
+        array(),
+        '11.2.10',
         true
     );
 
+    // Fancybox
     if (!is_page_template('page-home.php') && !is_page_template('page-contact.php')) {
-
         wp_enqueue_script(
             'fancybox',
             'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js',
@@ -30,10 +38,21 @@ function theme_front_scripts()
         );
     }
 
+    // Theme JavaScript
+    wp_enqueue_script(
+        'custom-js',
+        THEME_JS . 'custom.js',
+        array('jquery', 'swiper-js'),
+        file_exists(get_template_directory() . '/assets/js/custom.js')
+            ? filemtime(get_template_directory() . '/assets/js/custom.js')
+            : $version,
+        true
+    );
+
     $customParams = array(
-        'ADMIN_AJAX_URL'  => admin_url('admin-ajax.php'),
-        'SOCIAL_MEDIA'    => get_social_links(),
-        'STICKY_HEADER'   => get_theme_option('enable_sticky_header', 'option')
+        'ADMIN_AJAX_URL' => admin_url('admin-ajax.php'),
+        'SOCIAL_MEDIA'   => get_social_links(),
+        'STICKY_HEADER'  => get_theme_option('enable_sticky_header', 'option')
     );
 
     wp_localize_script(

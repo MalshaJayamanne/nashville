@@ -980,9 +980,7 @@ a {
 }
 
 
-/* =========================================================
-   BACKGROUND VIDEO / POSTER
-========================================================= */
+/* Background video or poster */
 
 .services-section .services-media {
     position: absolute;
@@ -1007,9 +1005,7 @@ a {
 }
 
 
-/* =========================================================
-   ACF WATERMARK IMAGE
-========================================================= */
+/* Background watermark */
 
 .services-section .services-watermark {
     position: absolute;
@@ -1033,9 +1029,7 @@ a {
 }
 
 
-/* =========================================================
-   CONTENT CONTAINER
-========================================================= */
+/* Content container */
 
 .services-section > .container {
     position: relative;
@@ -1043,9 +1037,7 @@ a {
 }
 
 
-/* =========================================================
-   SECTION HEADER
-========================================================= */
+/* Section heading */
 
 .services-section .services-head {
     display: flex;
@@ -1068,7 +1060,7 @@ a {
 }
 
 
-/* Eyebrow: Our Services */
+/* Eyebrow */
 
 .services-section .services-left > p:first-child {
     margin: 0 0 14px;
@@ -1086,7 +1078,7 @@ a {
 .services-section .services-left h2,
 .services-section .services-left h3 {
     margin: 0;
-    font-family: 'Cinzel', serif;
+    font-family: "Cinzel", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 46px;
@@ -1109,9 +1101,7 @@ a {
 }
 
 
-/* =========================================================
-   APPOINTMENT BUTTON
-========================================================= */
+/* Appointment button */
 
 .services-section .theme-white {
     display: inline-flex;
@@ -1144,44 +1134,36 @@ a {
 
 
 /* =========================================================
-   HORIZONTAL SERVICES SLIDER
+   SERVICES SWIPER
 ========================================================= */
 
-.services-section .services-slider {
+.services-section .services-swiper {
+    display: block;
+    width: 100%;
+    min-width: 0;
     margin-right: calc(50% - 50vw);
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
 }
 
-.services-section .services-slider::-webkit-scrollbar {
-    display: none;
-}
-
-.services-section .services-track {
+.services-section .services-swiper .swiper-wrapper {
     display: flex;
     align-items: stretch;
-    gap: 24px;
-    width: max-content;
-    padding-right: 24px;
 }
 
-
-/* =========================================================
-   SERVICE CARD
-========================================================= */
-
-.services-section .service-card {
-    flex: 0 0 459px;
+.services-section .services-swiper .swiper-slide {
+    flex-shrink: 0;
     box-sizing: border-box;
-    width: 459px;
+}
+
+.services-section .service-card.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: auto;
     min-height: 584px;
     padding: 16px 16px 45px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.91);
-    scroll-snap-align: start;
 }
 
 
@@ -1190,6 +1172,7 @@ a {
 .services-section .service-image {
     width: 100%;
     height: 316px;
+    flex-shrink: 0;
     overflow: hidden;
     border-radius: 10px;
 }
@@ -1217,7 +1200,7 @@ a {
 
 .services-section .service-body h3 {
     margin: 0 0 15px;
-    font-family: 'Cinzel', serif;
+    font-family: "Cinzel", serif;
     font-weight: 400;
     font-size: 28px;
     line-height: 1.2;
@@ -1268,6 +1251,68 @@ a {
 }
 
 
+/* Slider controls */
+
+.services-section .services-swiper-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.services-section .services-swiper-prev,
+.services-section .services-swiper-next {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.services-section .services-swiper-prev:hover,
+.services-section .services-swiper-next:hover {
+    background: #fff;
+    color: #87502C;
+}
+
+.services-section .services-swiper-prev.swiper-button-disabled,
+.services-section .services-swiper-next.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.services-section .services-swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.services-section .services-swiper-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    margin: 0;
+    background: #fff;
+    opacity: 0.5;
+}
+
+.services-section .services-swiper-pagination .swiper-pagination-bullet-active {
+    background: #C3864C;
+    opacity: 1;
+}
+
+
 /* =========================================================
    TABLET
 ========================================================= */
@@ -1296,6 +1341,26 @@ a {
         width: 1100px;
         height: auto;
         aspect-ratio: 1480 / 496;
+    }
+
+    .services-section .service-card.swiper-slide {
+        min-height: 0;
+    }
+
+    .services-section .service-image {
+        height: 280px;
+    }
+
+    .services-section .service-body {
+        width: 100%;
+    }
+
+    .services-section .service-body h3 {
+        font-size: 25px;
+    }
+
+    .services-section .service-body p {
+        font-size: 15px;
     }
 }
 
@@ -1337,18 +1402,11 @@ a {
         aspect-ratio: 1480 / 496;
     }
 
-    .services-section .services-slider {
+    .services-section .services-swiper {
         margin-right: calc(50% - 50vw);
     }
 
-    .services-section .services-track {
-        gap: 16px;
-        padding-right: 16px;
-    }
-
-    .services-section .service-card {
-        flex: 0 0 85vw;
-        width: 85vw;
+    .services-section .service-card.swiper-slide {
         min-height: 0;
         padding: 12px 12px 30px;
     }
@@ -1370,6 +1428,11 @@ a {
     .services-section .service-body p {
         font-size: 14px;
         line-height: 23px;
+    }
+
+    .services-section .services-swiper-controls {
+        gap: 14px;
+        margin-top: 25px;
     }
 }
 
@@ -1632,7 +1695,7 @@ a {
     position: relative;
     padding: 120px 44px;
     margin-top: 0;
-    background: #fffcf8;
+    background: #ffefdc;
     overflow: hidden;
 }
 
@@ -1688,7 +1751,6 @@ a {
     font-family: var(--font-raleway);
     font-size: 18px;
     font-weight: 500;
-    line-height: 1;
 }
 
 /* Main heading */
@@ -1699,7 +1761,6 @@ a {
     font-family: 'Cinzel', serif;
     font-size: 46px;
     font-weight: 400;
-    line-height: 56px;
     text-transform: uppercase;
 }
 
@@ -1735,7 +1796,7 @@ a {
     z-index: 2;
     top: 107px;
     right: 0;
-    width: 41.5%;
+    width: 38%;
     min-height: 544px;
     display: flex;
     align-items: center;
@@ -1764,7 +1825,6 @@ a {
     font-family: var(--font-raleway);
     font-size: 15px;
     font-weight: 800;
-    line-height: 27px;
 }
 
 /* Biography paragraphs */
@@ -1775,7 +1835,6 @@ a {
     font-family: var(--font-raleway);
     font-size: 15px;
     font-weight: 500;
-    line-height: 27px;
 }
 
 .doctor-right-editor p:last-child {
@@ -1801,7 +1860,6 @@ a {
     font-family: var(--font-raleway);
     font-size: 12px;
     font-weight: 700;
-    line-height: 1;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -1940,5 +1998,947 @@ a {
         margin-top: 15px;
         padding: 12px 20px;
         font-size: 11px;
+    }
+}
+
+
+
+/* =========================================================
+   CTA SECTION
+========================================================= */
+
+.cta-section {
+    position: relative;
+    padding: 0 40px 140px;
+    margin: 0;
+    background: #ffffff;
+    isolation: isolate;
+}
+
+/* Top Cream/Peach Half Background */
+.cta-section::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 38%;
+    background: #ffefdc;
+}
+
+/* =========================================================
+   CTA IMAGE CONTAINER
+========================================================= */
+
+.cta-image {
+    position: relative;
+    width: 100%;
+    max-width: 1240px;
+    height: 620px;
+    margin: 0 auto;
+    overflow: visible; /* Required for card overflow */
+    border-radius: 24px;
+}
+
+.cta-image > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    border-radius: 24px;
+}
+
+/* =========================================================
+   CTA CONTENT CARD OVERLAY
+========================================================= */
+
+.cta-content {
+    position: absolute;
+    z-index: 1;
+    top: 70%;
+    right: 60px;
+    transform: translateY(-36%); /* Aligns card bottom overlap */
+    width: 460px;
+    padding: 90px 45px;
+
+    display: flex;
+
+    background: rgba(255, 255, 255, 0.92);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 32px;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0,0,0,0.05);
+}
+
+.cta-content-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+/* Subheading */
+.cta-content-inner h5 {
+    margin: 0 0 16px;
+    color: #C0804D;
+    font-family: var(--font-raleway, 'Raleway', sans-serif);
+    font-size: 18px;
+    font-weight: 500;
+    font-style: medium;
+}
+
+/* Main Heading */
+.cta-content-inner h2 {
+    color: #1A1A1A;
+    font-family: 'Cinzel', serif;
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.cta-content-inner h3 {
+    color: #C0804D;font-family: 'Cinzel', serif;
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Description */
+.cta-content-inner p {
+    width: 100%;
+    max-width: 320px;
+    margin: 25px 0 32px;
+    color: #726E6C;
+    font-family: var(--font-raleway);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.65;
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 270px;
+    max-width: 100%;
+    height: 48px;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    border: none;
+    border-radius: 50px;
+    background: #C0804D;
+
+    color: #ffffff;
+    font-family: var(--font-raleway, 'Raleway', sans-serif);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    background-color: #A96E3E;
+    color: #ffffff;
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+========================================================= */
+
+@media (max-width: 1100px) {
+    .cta-content {
+        right: 40px;
+        width: 420px;
+        padding: 45px 35px;
+    }
+    
+    .cta-content-inner h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 767px) {
+    .cta-section {
+        padding: 0 20px 60px;
+    }
+
+    .cta-section::before {
+        height: 25%;
+    }
+
+    .cta-image {
+        height: auto;
+    }
+
+    .cta-image > img {
+        height: 380px;
+    }
+
+    .cta-content {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        width: 90%;
+        margin: -80px auto 0;
+        padding: 40px 24px;
+        border-radius: 24px;
+    }
+
+    .cta-content-inner h2 {
+        font-size: 24px;
+    }
+
+    .cta-button {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   INSTAGRAM GALLERY SECTION
+========================================================= */
+
+.gallery-section {
+    width: 100%;
+    padding: 50px 40px 60px;
+    background: #FFFFFF;
+    box-sizing: border-box;
+}
+
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+
+
+/* =========================================================
+   GALLERY HEADING
+========================================================= */
+
+.gallery-heading {
+    width: 100%;
+    margin: 0 0 48px;
+    text-align: center;
+}
+
+/* WYSIWYG wrapper */
+.gallery-heading-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.gallery-heading-content p {
+    margin: 0;
+}
+
+/* INSTAGRAM kicker */
+.gallery-heading-content h5 {
+    margin: 0 0 12px;
+    color: #1A1A1A;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 1.2px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* FOLLOW US title */
+.gallery-heading-content p {
+    display: inline-block;
+    margin: 0;
+    color: #2B2B2B;
+    font-family: "Cinzel", serif;
+    font-size: 23px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+/* Instagram handle */
+.instagram-handle {
+    display: inline-block;
+    margin: 0 0 0 8px;
+    color: #C3864C;
+    font-family: "Cinzel", serif;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: baseline;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.instagram-handle:hover,
+.instagram-handle:focus {
+    color: #846A47;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   INSTAGRAM IMAGE GRID
+========================================================= */
+
+.instagram-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Individual image card */
+.instagram-gallery-item {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 45px;
+    background: #F7F4F0;
+}
+
+/* Gallery images */
+.instagram-gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit;
+    transition: transform 0.4s ease;
+}
+
+/* Subtle hover effect */
+.instagram-gallery-item:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   TABLET — UP TO 1024px
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .gallery-section {
+        padding: 75px 30px 80px;
+    }
+
+    .gallery-heading {
+        margin-bottom: 38px;
+    }
+
+    .gallery-heading-content h4,
+    .instagram-handle {
+        font-size: 21px;
+    }
+
+    .instagram-gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .instagram-gallery-item {
+        height: auto;
+        aspect-ratio: 1 / 1;
+        border-radius: 32px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE — UP TO 767px
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .gallery-section {
+        padding: 60px 20px 65px;
+    }
+
+    .gallery-heading {
+        margin-bottom: 30px;
+    }
+
+    .gallery-heading-content h5 {
+        margin-bottom: 12px;
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+
+    .gallery-heading-content h4,
+    .instagram-handle {
+        font-size: clamp(17px, 4.5vw, 21px);
+        line-height: 1.5;
+    }
+
+    .instagram-handle {
+        margin-left: 5px;
+    }
+
+    .instagram-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .instagram-gallery-item {
+        aspect-ratio: 1 / 1;
+        height: auto;
+        border-radius: 24px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE — UP TO 380px
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .gallery-section {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .instagram-gallery {
+        gap: 12px;
+    }
+
+    .instagram-gallery-item {
+        border-radius: 20px;
+    }
+
+    .gallery-heading-content h4,
+    .instagram-handle {
+        font-size: 16px;
+    }
+}
+
+
+/* =========================================================
+    FOOTER
+========================================================= */
+
+.site-footer {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    overflow: hidden;
+    color: #FFFFFF;
+    background: radial-gradient(
+        ellipse at 50% 35%,
+        #3A1C04 0%,
+        #2E1603 55%,
+        #241001 100%
+    );
+}
+
+/* =========================================================
+   BACKGROUND VIDEO
+========================================================= */
+
+.footer-background {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.footer-background-video {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Dark bronze overlay for readability */
+.footer-overlay {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(
+        110deg,
+        rgba(58, 28, 4, 0.94) 0%,
+        rgba(46, 22, 3, 0.91) 50%,
+        rgba(36, 16, 1, 0.96) 100%
+    );
+    pointer-events: none;
+}
+
+/* =========================================================
+   MAIN FOOTER AREA
+========================================================= */
+
+.footer-main {
+    position: relative;
+    padding: 80px 60px;
+}
+
+.footer-container,
+.footer-bottom-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Four-column layout */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1.3fr 1.8fr 1.5fr;
+    column-gap: 45px;
+    align-items: end;
+}
+
+/* =========================================================
+   COLUMN 1: LOGO AND SOCIAL MEDIA
+========================================================= */
+
+.footer-brand {
+    min-width: 0;
+}
+
+.footer-logo-wrapper {
+    width: 100%;
+    max-width: 279px;
+    margin: 0 0 50px;
+}
+
+.footer-logo-wrapper img {
+    display: block;
+    width: 100%;
+    max-width: 285px;
+    height: auto;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.footer-social {
+    margin-top: 0;
+}
+
+.footer-social-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-media-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+/* Social template links */
+.footer-social-wrapper a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 33px;
+    width: 33px;
+    height: 33px;
+    padding: 1px 4px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: #1A1A1A;
+    text-decoration: none;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.footer-social-wrapper a:hover,
+.footer-social-wrapper a:focus {
+    background: #CEBB9E;
+    color: #241001;
+}
+
+.footer-social-wrapper a i,
+.footer-social-wrapper a svg {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    color: inherit;
+    fill: currentColor;
+}
+
+.footer-social-wrapper a svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* =========================================================
+   SHARED COLUMN TITLES
+========================================================= */
+
+.footer-column-title {
+    margin: 0 0 26px;
+    color: #CEBB9E;
+    font-family: "Aboreto", serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   COLUMN 2: QUICK LINKS
+========================================================= */
+
+.footer-links-column {
+    min-width: 0;
+}
+
+.footer-navigation {
+    width: 100%;
+}
+
+.footer-menu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 5px;
+    list-style: none;
+}
+
+.footer-menu li {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-menu a {
+    display: inline-block;
+    color: #FFFFFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-menu a:hover,
+.footer-menu a:focus {
+    color: #CEBB9E;
+}
+
+/* =========================================================
+   COLUMN 3: CONTACT DETAILS
+========================================================= */
+
+.footer-contact-column {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.footer-contact-item {
+    margin: 0 0 17px;
+}
+
+.footer-contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.footer-contact-item h5 {
+    margin: 0;
+    color: #E0E0E0;
+    font-family: "Poppins", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.footer-contact-item p,
+.footer-contact-item a {
+    display: block;
+    margin: 0;
+    color: #FFFFFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.footer-contact-item a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact-item a:hover,
+.footer-contact-item a:focus {
+    color: #CEBB9E;
+}
+
+/* =========================================================
+   COLUMN 4: OFFICE HOURS
+========================================================= */
+
+.footer-hours-column {
+    min-width: 0;
+}
+
+.footer-office-hours {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-office-hours li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #FFFFFF;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.77;
+}
+
+.footer-hours-day {
+    flex: 0 0 auto;
+    text-transform: capitalize;
+}
+
+.footer-contact-column {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* =========================================================
+   BOTTOM COPYRIGHT BAR
+========================================================= */
+
+.footer-bottom {
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-bottom-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 22px 20px;
+    box-sizing: border-box;
+}
+
+.footer-legal {
+    margin: 0;
+    color: #FFFFFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.footer-website-credit {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    color: #FFFFFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.footer-website-credit img {
+    display: block;
+    width: auto;
+    max-width: 75px;
+    max-height: 32px;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .footer-main {
+        padding: 65px 30px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 40px;
+        row-gap: 50px;
+    }
+
+    .footer-logo-wrapper {
+        max-width: 240px;
+    }
+
+    .footer-column-title {
+        margin-bottom: 22px;
+    }
+
+    .footer-bottom-container {
+        padding: 22px 30px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .footer-main {
+        padding: 55px 24px 45px;
+    }
+
+    .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 38px;
+    }
+
+    .footer-brand {
+        text-align: center;
+    }
+
+    .footer-logo-wrapper {
+        max-width: 220px;
+        margin: 0 auto 24px;
+    }
+
+    .footer-logo-wrapper img {
+        margin: 0 auto;
+        object-position: center;
+    }
+
+    .footer-social-wrapper {
+        justify-content: center;
+    }
+
+    .footer-column-title {
+        margin-bottom: 20px;
+        font-size: 17px;
+    }
+
+    .footer-menu {
+        column-gap: 18px;
+        row-gap: 12px;
+    }
+
+    .footer-menu a {
+        font-size: 13px;
+    }
+
+    .footer-contact-item {
+        margin-bottom: 14px;
+    }
+
+    .footer-office-hours {
+        gap: 10px;
+    }
+
+    .footer-office-hours li {
+        font-size: 13px;
+    }
+
+    .footer-bottom-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        padding: 20px 24px;
+        text-align: center;
+    }
+
+    .footer-website-credit {
+        justify-content: center;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .footer-main {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    .footer-menu {
+        column-gap: 12px;
+    }
+
+    .footer-menu a {
+        font-size: 12px;
+    }
+
+    .footer-bottom-container {
+        padding-right: 18px;
+        padding-left: 18px;
     }
 }

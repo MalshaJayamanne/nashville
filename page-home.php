@@ -285,7 +285,7 @@ $appointment_target = (
 
 <section class="services-section">
 
-    <!-- BACKGROUND VIDEO / POSTER -->
+    <!-- Background video or poster -->
 
     <div class="services-media">
 
@@ -324,8 +324,7 @@ $appointment_target = (
 
     </div>
 
-
-    <!-- ACF BACKGROUND WATERMARK -->
+    <!-- Background watermark -->
 
     <?php if ($service_watermark) : ?>
 
@@ -341,10 +340,9 @@ $appointment_target = (
 
     <?php endif; ?>
 
-
     <div class="container">
 
-        <!-- SECTION HEADING AND INTRODUCTION -->
+        <!-- Section heading and introduction -->
 
         <div class="services-head">
 
@@ -355,7 +353,6 @@ $appointment_target = (
                 </div>
 
             <?php endif; ?>
-
 
             <?php if ($service_right) : ?>
 
@@ -382,14 +379,13 @@ $appointment_target = (
 
         </div>
 
-
-        <!-- SERVICE CARDS -->
+        <!-- Services Swiper -->
 
         <?php if (have_rows('services')) : ?>
 
-            <div class="services-slider">
+            <div class="services-swiper swiper">
 
-                <div class="services-track">
+                <div class="swiper-wrapper">
 
                     <?php while (have_rows('services')) : the_row(); ?>
 
@@ -400,7 +396,7 @@ $appointment_target = (
                         $service_link    = get_sub_field('link');
                         ?>
 
-                        <article class="service-card">
+                        <article class="service-card swiper-slide">
 
                             <?php if ($service_image) : ?>
 
@@ -416,7 +412,6 @@ $appointment_target = (
 
                             <?php endif; ?>
 
-
                             <div class="service-body">
 
                                 <?php if ($service_title) : ?>
@@ -427,7 +422,6 @@ $appointment_target = (
 
                                 <?php endif; ?>
 
-
                                 <?php if ($service_content) : ?>
 
                                     <p>
@@ -435,7 +429,6 @@ $appointment_target = (
                                     </p>
 
                                 <?php endif; ?>
-
 
                                 <?php if (is_array($service_link) && !empty($service_link['url'])) : ?>
 
@@ -463,6 +456,30 @@ $appointment_target = (
                         </article>
 
                     <?php endwhile; ?>
+
+                </div>
+
+                <!-- Slider controls -->
+
+                <div class="services-swiper-controls">
+
+                    <button
+                        type="button"
+                        class="services-swiper-prev"
+                        aria-label="Previous services"
+                    >
+                        &#8592;
+                    </button>
+
+                    <div class="services-swiper-pagination"></div>
+
+                    <button
+                        type="button"
+                        class="services-swiper-next"
+                        aria-label="Next services"
+                    >
+                        &#8594;
+                    </button>
 
                 </div>
 
@@ -654,6 +671,158 @@ $doctor_link     = get_field('doctor_link');
     </div>
 </section>
 
+
+<?php
+$cta_image   = get_field('cta_image');
+$cta_content = get_field('cta_content');
+$footer_link = get_field('footer_link');
+
+// Appointment button settings.
+$button_url   = !empty($footer_link['url']) ? $footer_link['url'] : '#appointment';
+$button_title = !empty($footer_link['title']) ? $footer_link['title'] : 'Schedule an Appointment';
+$target       = !empty($footer_link['target']) ? $footer_link['target'] : '_self';
+?>
+
+<section class="cta-section">
+    <div class="cta-image">
+        <?php
+        if ($cta_image) {
+            if (is_array($cta_image)) {
+                echo wp_get_attachment_image($cta_image['ID'], 'full', false, [
+                    'alt' => 'Woman enjoying a warm sunset with a confident smile'
+                ]);
+            } elseif (is_numeric($cta_image)) {
+                echo wp_get_attachment_image($cta_image, 'full', false, [
+                    'alt' => 'Woman enjoying a warm sunset with a confident smile'
+                ]);
+            } else {
+                echo '<img src="' . esc_url($cta_image) . '" alt="Woman enjoying a warm sunset with a confident smile" />';
+            }
+        }
+        ?>
+
+        <div class="cta-content">
+            <div class="cta-content-inner">
+                <?php
+                if ($cta_content) {
+                    echo wp_kses_post($cta_content);
+                } else {
+                    
+                    ?>
+                    
+                    <?php
+                }
+                ?>
+
+                <!-- Appointment Button -->
+                <a
+                    class="cta-button"
+                    href="<?php echo esc_url($button_url); ?>"
+                    target="<?php echo esc_attr($target); ?>"
+                    <?php if ($target === '_blank') : ?>
+                        rel="noopener noreferrer"
+                    <?php endif; ?>
+                >
+                    <?php echo esc_html($button_title); ?>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<?php
+$gallery_title     = get_field('gallery_title');
+$instagram_link    = get_field('instagram_link');
+$instagram_gallery  = get_field('instagram_gallery');
+
+$instagram_url = !empty($instagram_link['url'])
+    ? $instagram_link['url']
+    : '';
+
+$instagram_target = !empty($instagram_link['target'])
+    ? $instagram_link['target']
+    : '_blank';
+
+$instagram_handle = '@NASHVILLEASTHETIC';
+?>
+
+<section class="gallery-section" id="gallery">
+
+    <div class="gallery-container">
+
+        <!-- Gallery Heading -->
+        <div class="gallery-heading">
+
+            <?php if ($gallery_title) : ?>
+                <div class="gallery-heading-content">
+                    <?php echo wp_kses_post($gallery_title); ?>
+
+                    <!-- Instagram Handle: same row as FOLLOW US -->
+                    <?php if ($instagram_url) : ?>
+                        <a
+                            class="instagram-handle"
+                            href="<?php echo esc_url($instagram_url); ?>"
+                            target="<?php echo esc_attr($instagram_target); ?>"
+                            <?php if ($instagram_target === '_blank') : ?>
+                                rel="noopener noreferrer"
+                            <?php endif; ?>
+                        >
+                            <?php echo esc_html($instagram_handle); ?>
+                        </a>
+                    <?php else : ?>
+                        <span class="instagram-handle">
+                            <?php echo esc_html($instagram_handle); ?>
+                        </span>
+                    <?php endif; ?>
+
+                </div>
+            <?php endif; ?>
+
+        </div>
+
+        <!-- Instagram Image Gallery -->
+        <?php if (!empty($instagram_gallery) && is_array($instagram_gallery)) : ?>
+
+            <div class="instagram-gallery">
+
+                <?php foreach ($instagram_gallery as $image) : ?>
+
+                    <?php
+                    // Support ACF Gallery fields returning image IDs or arrays.
+                    $image_id = is_array($image)
+                        ? (int) ($image['ID'] ?? $image['id'] ?? 0)
+                        : (int) $image;
+
+                    if (!$image_id) {
+                        continue;
+                    }
+
+                    $image_alt = is_array($image) && !empty($image['alt'])
+                        ? $image['alt']
+                        : 'Instagram gallery image';
+                    ?>
+
+                    <div class="instagram-gallery-item">
+                        <?php
+                        echo get_image(
+                            $image_id,
+                            'gallery',
+                            $image_alt
+                        );
+                        ?>
+                    </div>
+
+                <?php endforeach; ?>
+
+            </div>
+
+        <?php endif; ?>
+
+    </div>
+
+</section>
 
 </main>
 

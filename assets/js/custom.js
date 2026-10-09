@@ -100,6 +100,45 @@ document.addEventListener("DOMContentLoaded", function () {
 		homeServicesImageSwiper.controller.control = homeServicesSwiper;
 	}
 
+	// Services section slider
+	const servicesSlider = document.querySelector(".services-swiper");
+
+	if (servicesSlider && typeof Swiper !== "undefined") {
+		new Swiper(servicesSlider, {
+			slidesPerView: 1,
+			spaceBetween: 24,
+			speed: 600,
+			loop: true,
+
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+				pauseOnMouseEnter: true
+			},
+
+			breakpoints: {
+				768: {
+					slidesPerView: 2
+				},
+				1025: {
+					slidesPerView: 3
+				}
+			},
+
+			navigation: {
+				nextEl: ".services-swiper-next",
+				prevEl: ".services-swiper-prev"
+			},
+
+			pagination: {
+				el: ".services-swiper-pagination",
+				clickable: true
+			}
+		});
+
+		console.log("Services slider initialized");
+	}
+
 	if (document.getElementById("homeInsurances")) {
 		new ThemeSwiper("#homeInsurances", {
 			loop: true,
