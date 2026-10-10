@@ -167,6 +167,9 @@ main > section {
     display: none;
 }
 
+.main-header .right .header-top .social-media-wrapper {
+    gap: 0px;
+} 
 
 /* =========================================================
    HEADER — DESKTOP (1025px and above)
@@ -200,7 +203,7 @@ main > section {
     .main-header .right .header-top {
         grid-column: 3;
         grid-row: 1;
-    }
+    }  
 
     .main-header .right .menu-wrapper {
         grid-column: 3;
