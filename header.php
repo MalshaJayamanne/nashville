@@ -61,8 +61,7 @@ if ($enable_sticky_header) {
                                 rel="noopener noreferrer"
                             <?php endif; ?>
                         >
-                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                            <?php echo esc_html($footer_mobile['title']); ?>
+                            <i class="fa-solid fa-phone" aria-hidden="true"></i><?php echo esc_html($footer_mobile['title']); ?>
                         </a>
 
                     <?php endif; ?>
@@ -116,6 +115,20 @@ if ($enable_sticky_header) {
             </div>
 
 
+            <!-- MENU TOGGLE (tablet / mobile) -->
+
+            <button
+                class="header-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+
             <!-- RIGHT -->
 
             <div class="right">
@@ -167,4 +180,3 @@ if ($enable_sticky_header) {
         </div>
 
     </header>
-    

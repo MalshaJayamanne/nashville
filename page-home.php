@@ -3,7 +3,7 @@
 
 get_header();
 
-// Appointment button (shared by hero + about)
+// Appointment button (shared by hero, about, select us and CTA)
 $footer_link = get_field('footer_link', 'option');
 ?>
 
@@ -110,6 +110,9 @@ $about_image   = get_field('about_image');
 $about_content = get_field('about_content');
 $about_link    = get_field('about_link');
 
+// Optional: faint skyline image in the bottom-right of the card (ACF image field "about_watermark")
+$about_watermark = get_field('about_watermark');
+
 ?>
 
 <section class="about-section">
@@ -151,6 +154,20 @@ $about_link    = get_field('about_link');
             <!-- CONTENT CARD -->
 
             <div class="about-card">
+
+                <?php if ($about_watermark) : ?>
+
+                    <div class="about-watermark" aria-hidden="true">
+                        <?php
+                        get_image(
+                            $about_watermark,
+                            'about-watermark-image',
+                            ''
+                        );
+                        ?>
+                    </div>
+
+                <?php endif; ?>
 
                 <?php if ($about_content) : ?>
 
@@ -211,43 +228,41 @@ $selectus_content = get_field('selectus_content');
 
 <section class="selectus-section">
 
-        <div class="selectus-image">
+    <div class="selectus-image">
 
-            <?php if ($selectus_image) : ?>
+        <?php if ($selectus_image) : ?>
 
-                <?php
-                get_image(
-                    $selectus_image,
-                    'selectus-bg-image',
-                    ''
-                );
-                ?>
+            <?php
+            get_image(
+                $selectus_image,
+                'selectus-bg-image',
+                ''
+            );
+            ?>
+
+        <?php endif; ?>
+
+
+        <div class="selectus-inner">
+
+            <?php if ($selectus_content) : ?>
+
+                <div class="selectus-content">
+                    <?php echo wp_kses_post($selectus_content); ?>
+                </div>
 
             <?php endif; ?>
 
 
-            <div class="selectus-inner">
+            <!-- APPOINTMENT BUTTON -->
 
-                <?php if ($selectus_content) : ?>
-
-                    <div class="selectus-content">
-                        <?php echo wp_kses_post($selectus_content); ?>
-                    </div>
-
-                <?php endif; ?>
-
-
-                <!-- APPOINTMENT BUTTON -->
-
-                <a
-                    class="theme-brown"
-                    href="<?php echo esc_url(!empty($footer_link['url']) ? $footer_link['url'] : home_url('/#cta')); ?>"
-                    target="<?php echo esc_attr($footer_link['target'] ?? '_self'); ?>"
-                >
-                    Schedule an appointment
-                </a>
-
-            </div>
+            <a
+                class="theme-brown"
+                href="<?php echo esc_url(!empty($footer_link['url']) ? $footer_link['url'] : home_url('/#cta')); ?>"
+                target="<?php echo esc_attr($footer_link['target'] ?? '_self'); ?>"
+            >
+                Schedule an appointment
+            </a>
 
         </div>
 
@@ -459,30 +474,6 @@ $appointment_target = (
 
                 </div>
 
-                <!-- Slider controls -->
-
-                <div class="services-swiper-controls">
-
-                    <button
-                        type="button"
-                        class="services-swiper-prev"
-                        aria-label="Previous services"
-                    >
-                        &#8592;
-                    </button>
-
-                    <div class="services-swiper-pagination"></div>
-
-                    <button
-                        type="button"
-                        class="services-swiper-next"
-                        aria-label="Next services"
-                    >
-                        &#8594;
-                    </button>
-
-                </div>
-
             </div>
 
         <?php endif; ?>
@@ -490,6 +481,7 @@ $appointment_target = (
     </div>
 
 </section>
+
 
 <?php
 
@@ -675,9 +667,8 @@ $doctor_link     = get_field('doctor_link');
 <?php
 $cta_image   = get_field('cta_image');
 $cta_content = get_field('cta_content');
-$footer_link = get_field('footer_link');
 
-// Appointment button settings.
+// Appointment button settings (uses the shared $footer_link from the top).
 $button_url   = !empty($footer_link['url']) ? $footer_link['url'] : '#appointment';
 $button_title = !empty($footer_link['title']) ? $footer_link['title'] : 'Schedule an Appointment';
 $target       = !empty($footer_link['target']) ? $footer_link['target'] : '_self';
@@ -703,16 +694,10 @@ $target       = !empty($footer_link['target']) ? $footer_link['target'] : '_self
 
         <div class="cta-content">
             <div class="cta-content-inner">
-                <?php
-                if ($cta_content) {
-                    echo wp_kses_post($cta_content);
-                } else {
-                    
-                    ?>
-                    
-                    <?php
-                }
-                ?>
+
+                <?php if ($cta_content) : ?>
+                    <?php echo wp_kses_post($cta_content); ?>
+                <?php endif; ?>
 
                 <!-- Appointment Button -->
                 <a
@@ -725,17 +710,17 @@ $target       = !empty($footer_link['target']) ? $footer_link['target'] : '_self
                 >
                     <?php echo esc_html($button_title); ?>
                 </a>
+
             </div>
         </div>
     </div>
 </section>
 
 
-
 <?php
 $gallery_title     = get_field('gallery_title');
 $instagram_link    = get_field('instagram_link');
-$instagram_gallery  = get_field('instagram_gallery');
+$instagram_gallery = get_field('instagram_gallery');
 
 $instagram_url = !empty($instagram_link['url'])
     ? $instagram_link['url']
@@ -745,7 +730,7 @@ $instagram_target = !empty($instagram_link['target'])
     ? $instagram_link['target']
     : '_blank';
 
-$instagram_handle = '@NASHVILLEASTHETIC';
+$instagram_handle = '@NashvilleAesthetic';
 ?>
 
 <section class="gallery-section" id="gallery">
