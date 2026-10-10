@@ -696,7 +696,7 @@ main > section {
     justify-content: space-between;
     gap: 24px;
     width: 100%;
-    max-width: 876px;
+    max-width: 750px;
     margin: 28px 0 0;
     padding: 8px 8px 8px 36px;
     border-radius: 60px;
@@ -710,7 +710,7 @@ main > section {
     margin: 0;
     color: #8F5C2B;
     font-family: var(--font-raleway);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     text-align: left;
 }
