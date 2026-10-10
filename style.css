@@ -1020,12 +1020,14 @@ main > section {
 
     .about-section {
         padding: 50px 0 60px;
+        text-align: center;
     }
 
     .about-section .container > h2 {
         margin-bottom: 30px;
         font-size: 28px;
         line-height: 36px;
+        text-align: center;
     }
 
     .about-section .about-image {
@@ -1037,6 +1039,11 @@ main > section {
         margin: -40px 10px 0;
         padding: 32px 22px;
         border-radius: 24px;
+        text-align: center;
+    }
+
+    .about-section .about-content {
+        text-align: center;
     }
 
     .about-section .about-content h1,
@@ -1044,20 +1051,27 @@ main > section {
     .about-section .about-content h3 {
         font-size: 28px;
         line-height: 36px;
+        text-align: center;
     }
 
     .about-section .about-content p {
         font-size: 15px;
         line-height: 26px;
+        text-align: center;
     }
 
     .about-section .about-buttons {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
+        gap: 12px;
     }
 
     .about-section .about-buttons a {
-        padding: 0 20px;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 20px;
+        text-align: center;
     }
 }
 
@@ -1716,12 +1730,12 @@ main > section {
 
     .reviews-section .reviews-container {
         min-height: 0;
-        padding: 320px 20px 50px;
+        padding: 80px 20px 80px;
     }
 
     .reviews-section .reviews-content {
         max-width: 100%;
-        margin-left: 0;
+        margin: 0;
     }
 
     .reviews-section .reviews-heading {
@@ -1968,22 +1982,26 @@ main > section {
     }
 }
 
+
 /* Doctor — mobile */
 
 @media (max-width: 767px) {
 
     .doctor-section {
         padding: 50px 20px;
+        text-align: center;
     }
 
     .doctor-container {
         display: flex;
         flex-direction: column;
         gap: 0;
+        align-items: center;
     }
 
     .doctor-image {
         order: 1;
+        width: 100%;
         min-height: 0;
         aspect-ratio: 4 / 5;
         border-radius: 28px;
@@ -1991,51 +2009,71 @@ main > section {
 
     .doctor-left {
         order: 2;
+        width: 100%;
+        box-sizing: border-box;
         margin-top: -35px;
         padding: 35px 25px;
         border-radius: 24px;
+        text-align: center;
     }
 
     .doctor-left-content,
     .doctor-right-content {
         max-width: 100%;
+        text-align: center;
     }
 
     .doctor-left-editor {
         gap: 12px;
+        text-align: center;
     }
 
     .doctor-left-editor p {
         font-size: 16px;
+        text-align: center;
     }
 
-    .doctor-left-editor h2 {
+    .doctor-left-editor h1,
+    .doctor-left-editor h2,
+    .doctor-left-editor h3 {
         font-size: clamp(30px, 8vw, 38px);
         line-height: 1.25;
+        text-align: center;
     }
 
     .doctor-right {
         order: 3;
+        width: 100%;
+        box-sizing: border-box;
         margin-top: 20px;
         padding: 35px 25px;
         border-radius: 24px;
+        text-align: center;
+    }
+
+    .doctor-right-editor {
+        text-align: center;
     }
 
     .doctor-right-editor h5 {
         font-size: 15px;
         line-height: 1.7;
+        text-align: center;
     }
 
     .doctor-right-editor p {
         margin-bottom: 15px;
         font-size: 14px;
         line-height: 1.8;
+        text-align: center;
     }
 
     .doctor-button {
-        margin-top: 15px;
+        display: inline-block;
+        margin: 15px auto 0;
         padding: 12px 20px;
         font-size: 11px;
+        text-align: center;
     }
 }
 
@@ -2381,7 +2419,6 @@ main > section {
 }
 
 /* Gallery — mobile */
-
 @media (max-width: 767px) {
 
     .gallery-section {
@@ -2410,11 +2447,19 @@ main > section {
 
     .instagram-gallery {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-items: center;
         gap: 14px;
     }
 
     .instagram-gallery-item {
+        width: 100%;
         border-radius: 24px;
+    }
+
+    /* Center the final image when it is alone in the last row */
+    .instagram-gallery-item:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        width: calc((100% - 14px) / 2);
     }
 }
 
